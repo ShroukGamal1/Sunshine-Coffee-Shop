@@ -1,0 +1,17 @@
+<!-- <div class="mb-5 text-center">
+    <h1 class="mb-5">More Details About Our Products</h1>
+    <select (change)="onSelectProduct($event)" class="form-select">
+        <option value="">Select a product</option>
+        <option *ngFor="let product of products" [value]="product">{{ product?.title }}</option>
+    </select>
+</div> -->
+<div class="container mb-5 text-center">
+    <h1 class="mb-5">More Details About Our Products</h1>
+
+<div *ngIf="product" class="text-center col-md-6 col-lg-6 m-auto mb-5">
+    <img src="{{product.img}}">
+    <h2>{{ product.title }}</h2>
+    <p><b>Price:</b> {{ product.price }} $</p>
+    <p><b>Description: </b>{{ product.desc }}</p>
+</div>
+</div>

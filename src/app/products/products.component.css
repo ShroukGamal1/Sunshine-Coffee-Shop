@@ -1,0 +1,76 @@
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.justify-content-center {
+   
+    justify-content: center !important;
+}
+
+.row {
+    
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+ 
+}
+.heading-section {
+    z-index: 0;
+}
+.ftco-animate {
+    opacity: 0;
+    visibility: hidden;
+}
+.text-center {
+    text-align: center !important;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+.ftco-animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.heading-section .subheading {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 0;
+    font-family: "Great Vibes", cursive;
+    color: #c49b63;
+    line-height: 1;
+    margin-bottom: -21px;
+    z-index: 1;
+}
+span {
+    color:#c49b63 ;
+}
+.heading-section h2 {
+    z-index: -1;
+    font-size: 40px;
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    line-height: 1.4;
+    color:#c49b63 ;
+    font-weight: 400;
+    font-family: "Josefin Sans", Arial, sans-serif;
+}
+p{
+    color:#8e7047 ;
+}

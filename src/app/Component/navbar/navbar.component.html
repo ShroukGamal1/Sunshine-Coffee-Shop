@@ -1,0 +1,54 @@
+
+<section id="#sec1">
+    <div class="header" id="home">
+        <div class="container">
+            <ul>
+                
+                <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> </a></li>
+            </ul>
+        </div>
+    </div>
+    </section>
+<section id="sec2">
+    <div class="header-bot">
+        
+        <div class="header-bot_inner_wthreeinfo_header_mid">
+           
+            <div class="col-md-4 logo">
+              
+                <h1><a href="home.html" ><img src="assets/images/coffee (1).png"> <img src="assets/images/s (1).png">unshine<i class="fa fa-shopping-bag" aria-hidden="true"></i></a></h1>
+            </div>
+            <div class="col-md-4 socialmedia ">
+                <ul class="social-nav ">
+
+                <li class="share">Share On : </li>
+                <li><a href="#" class="facebook">
+                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="twitter"> 
+                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="instagram">
+                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="pinterest">
+                <div class="front"><i class="fa fa-pinterest" aria-hidden="true"></i></div></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    </section>
+<section id="sec3">
+<ul>
+    <li><a [routerLink]="['/']"
+        [routerLinkActive]="'text-warning'"
+        [routerLinkActiveOptions]="{ exact: true }" ><i class="fa fa-home"></i> Home</a></li>
+    <li><a [routerLink]="['/Product',0,'edit']"
+        [routerLinkActive]="'text-warning'"> Dashboard</a></li>
+    <li><a ><i class="fa fa-info-circle"></i> Product Details</a></li>
+    <li id ='cart'> <div>
+      <a class="nav-link text-white" href="#"><i id="carti"  class="bi bi-basket-fill"></i><span id="cartCount">0</span></a>
+ </div>
+    </li>
+
+  </ul>
+</section>

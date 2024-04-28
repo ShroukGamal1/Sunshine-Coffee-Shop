@@ -1,0 +1,85 @@
+
+.menu-entry {
+    margin-bottom: 30px;
+}
+.menu-entry .img {
+    height: 300px;
+    width: auto;
+}
+
+a {
+    text-decoration: none;
+
+    color: #c49b63;
+}
+.text-center {
+    text-align: center !important;
+}
+
+.menu-entry .text h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, .h1, .h2, .h3,p, .h4, .h5 {
+    line-height: 1.4;
+
+    color: #c49b63;
+    font-weight: bolder;
+    font-family: "Josefin Sans", Arial, sans-serif;
+}
+
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.menu-entry .text .price span {
+    color: #573607;
+    font-size: 18px;
+}
+span {
+    color: #c49b63;
+}
+.btn.btn-primary.btn-outline-primary {
+    border: 1px solid beige;
+    background: transparent;
+    background-color:#ba853c ;
+    color: #ffff;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn.btn-primary {
+    background: #c49b63;
+    border: 1px solid #c49b63;
+    color: #000;
+}
+.btn {
+    cursor: pointer;
+    background: #c49b63;
+
+    border-radius: 0;
+    font-size: 13px;
+}
+.btn:hover{
+background-color:#c49b63 ;
+color: bisque;
+}
+
+
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}

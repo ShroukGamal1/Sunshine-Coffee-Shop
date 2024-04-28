@@ -1,0 +1,53 @@
+ <div class="container" >
+    <h1 class="my-2 text-muted text-center">
+        {{ productId == 0 ? "Add Product" : "Edit Product" }}
+      </h1>
+ <form [formGroup]="ProductForm">
+        <div class="form-group mb-4">
+          <label for="Product1">Product Title</label>
+          <input type="text" class="form-control" id="Product1"  name="producttitle"
+             placeholder="Enter Product Name"  formControlName="title" >
+             <ng-container *ngIf="GetTitle.touched" >
+          <div *ngIf="GetTitle.hasError('minlength')" class="text-danger">Title must contain more than 3 characters.</div>
+          <div *ngIf="GetTitle.hasError('required')" class="text-danger">Title must be entered.</div>
+</ng-container>
+
+        </div>
+        <div class="form-group mb-4">
+          <label for="Price1">Price</label>
+          <input type="number" class="form-control"  name="productprice"
+           id="Price1" #priceInput placeholder=" Enter Price" formControlName="price" >
+           <ng-container *ngIf="GetPrice.touched" >
+          <div *ngIf="GetPrice.hasError('min')" class="text-danger">Price must be greater than $10.</div>
+          <div *ngIf="GetPrice.hasError('required')" class="text-danger">Price must be Entered.</div>
+        </ng-container>
+        </div>
+        <div class="form-group mb-4">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" name="quantity"
+           id="quantity" #quantityInput  placeholder=" Enter quantity" formControlName="quantity" >
+           <ng-container *ngIf="GetQuantity.touched" >
+          <div *ngIf="GetQuantity.hasError('required')" class="text-danger">Quantity must be entered</div>
+          <div *ngIf="GetQuantity.hasError('min')" class="text-danger">Quantity must be positive number</div>
+</ng-container>
+        </div>
+        <div class="form-group mb-4">
+            <label for="desc">Description</label>
+            <input type="text" class="form-control" name="desc"
+              id="desc" #descInput  placeholder=" Enter Description" formControlName="desc"  >
+              <ng-container *ngIf="GetDesc.touched">
+              <div  *ngIf="GetDesc.hasError('required')" class="text-danger">Description must be entered</div>
+              </ng-container>
+          </div>
+          <div class="form-group mb-4">
+            <label for="img">Image</label>
+            <input type="text" class="form-control" name="img" 
+              id="img" #imgInput formControlName="img"  placeholder=" Enter Image ">
+              <ng-container *ngIf="GetDesc.touched">
+              <div  *ngIf="GetImg.hasError('required')" class="text-danger">Quantity must be entered</div></ng-container>
+          </div>
+
+        <button type="submit"  (click)="productOperation()" class="btn btn-success mb-5"> {{ productId == 0 ? "Add Product" : "Edit Product" }}
+        </button>
+      </form>  
+</div>

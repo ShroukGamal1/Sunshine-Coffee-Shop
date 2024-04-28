@@ -1,0 +1,15 @@
+h1{
+    color:#76614d ;
+    font-weight: bolder;
+    border-style: 2px solid ;
+}
+img{
+    height: fit-content;
+    width: 40%;
+}
+h2{
+    color:#a27244 ;
+}
+select{
+    background-color: beige;
+}
