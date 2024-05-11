@@ -3,10 +3,10 @@
 @for(product of products; track product.id; let i=$index){
    <div class="col-md-6 col-lg-4 mb-5">
     <div class="menu-entry ">
-        <a href="#" > <img src="{{product.img}}"  class="img w-100" alt=""></a>
+        <a href="#" > <img src="{{product.image}}"  class="img w-100" alt=""></a>
         <div class="text text-center pt-4">
-            <h3><a href="#">{{product.title}}</a></h3>
-            <p>{{product.desc}}</p>
+            <h3><a href="#">{{product.name}}</a></h3>
+            <p>{{product.description}}</p>
             <p class="price"><span>${{product.price}}</span></p>
              @switch (product.quantity) { 
                 @case(0){

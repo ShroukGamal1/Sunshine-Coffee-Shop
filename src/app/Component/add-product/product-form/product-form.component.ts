@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServicesService } from '../../../Service/product-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductInterface } from '../../../models/product-interface';
-import { ProductList } from '../../../models/ProductList';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { title } from 'node:process';
 import { CommonModule } from '@angular/common';
@@ -17,14 +16,12 @@ import { ProductsFromAPIService } from '../../../Service/products-from-api.servi
 })
 export class ProductFormComponent implements OnInit {
 
-  //titleInvalid: boolean = false;
-  //priceInvalid: boolean = false;
-  //quantityInvalid: boolean = false;
 ProductForm=new FormGroup({
-  title :new FormControl("",[Validators.required,Validators.minLength(3)]),
-  desc:new FormControl("",Validators.required),
-  img:new FormControl("",Validators.required),
+  name :new FormControl("",[Validators.required,Validators.minLength(3)]),
+  description:new FormControl("",Validators.required),
+  image:new FormControl(""),
   price:new FormControl(0,Validators.min(10)),
+  rating :new FormControl(0,Validators.min(0)),
   quantity:new FormControl(0,[Validators.required,Validators.min(0)])
 
 });
@@ -36,8 +33,11 @@ ProductForm=new FormGroup({
     public activatedRoute: ActivatedRoute) { }
 
   get GetTitle(){
-     return this.ProductForm.controls['title'];
+     return this.ProductForm.controls['name'];
   }
+  get GetRating(){
+    return this.ProductForm.controls['rating'];
+ }
   get GetPrice(){
     return this.ProductForm.controls['price'];
  }
@@ -45,10 +45,10 @@ ProductForm=new FormGroup({
   return this.ProductForm.controls['quantity'];
 }
 get GetImg(){
-  return this.ProductForm.controls['img'];
+  return this.ProductForm.controls['image'];
 }
 get GetDesc(){
-  return this.ProductForm.controls['desc'];
+  return this.ProductForm.controls['description'];
 }
 
   ngOnInit(): void {
@@ -57,8 +57,9 @@ get GetDesc(){
         this.productId = params['id'];
         this.GetTitle.setValue('');
         this.GetDesc.setValue('');
-        this.GetImg.setValue('');
+        this.GetImg.setValue(null);
         this.GetPrice.setValue(null);
+        this.GetRating.setValue(null);
         this.GetQuantity.setValue(null);
       },
     });
@@ -66,27 +67,59 @@ get GetDesc(){
       this.productService.getById(this.productId).subscribe({
         next: (data) => {
           this.product = data;
-          this.product=this.product[0];
-          this.GetTitle.setValue(this.product.title);
+          //this.product=this.product[0];
+          this.GetTitle.setValue(this.product.name);
           this.GetPrice.setValue(this.product.price);
           this.GetQuantity.setValue(this.product.quantity);
-          this.GetImg.setValue(this.product.img);
-          this.GetDesc.setValue(this.product.desc);
+         // this.GetImg.setValue(this.product.image);
+          this.GetRating.setValue(this.product.rating);
+          this.GetDesc.setValue(this.product.description);
         },
       });
   }}
+  imageUrl: string | ArrayBuffer | null = null;
 
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+    }
+
+  }
   productOperation() {
     if (this.ProductForm.status == 'VALID') {
       if (this.productId == 0) {
-        this.productService.addProduct(this.ProductForm.value).subscribe({
+        var obj2={
+          name :this.ProductForm.value.name,
+          description:this.ProductForm.value.description,
+          image:this.imageUrl,
+          price:this.ProductForm.value.price,
+          rating :this.ProductForm.value.rating,
+          quantity:this.ProductForm.value.quantity
+        
+        };
+        this.productService.addProduct(obj2).subscribe({
           next: () => {
             this.router.navigate(['/Product/:id/edit']);
           },
         });
       } else {
+        var obj={
+          id:this.productId,
+          name :this.ProductForm.value.name,
+          description:this.ProductForm.value.description,
+          image:this.imageUrl,
+          price:this.ProductForm.value.price,
+          rating :this.ProductForm.value.rating,
+          quantity:this.ProductForm.value.quantity
+        
+        };
         this.productService
-          .update(this.productId, this.ProductForm.value)
+          .update(this.productId, obj)
           .subscribe({
             next: () => {
               this.router.navigate(['/Product/:0/edit']);
@@ -97,6 +130,7 @@ get GetDesc(){
       console.log('Form inValid');
     }
   }
+  
 /*
   validateTitle(event: Event) {
     const titleInputValue: string = (event.target as HTMLInputElement).value;

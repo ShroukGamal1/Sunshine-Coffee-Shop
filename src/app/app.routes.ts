@@ -5,12 +5,15 @@ import { AddProductComponent } from './Component/add-product/add-product.compone
 import { Component } from '@angular/core';
 import { ElementsComponent } from './Component/elements/elements.component';
 import { ProductFormComponent } from './Component/add-product/product-form/product-form.component';
+import { CartComponent } from './Component/cart/cart.component';
 
 export const routes: Routes = [
     {path:"",component:ElementsComponent},
     {path:"Product/:id",component:ProductdetailsComponent},
         {path:"Product/:id/edit",component:AddProductComponent},
         {path:"Product/:id/add",component:ProductFormComponent},
-        {path:"Product/:id/details",component:ProductdetailsComponent}
+        {path:"Product/:id/details",component:ProductdetailsComponent},
+        {path:"Cart",component:CartComponent}
+
 
 ];

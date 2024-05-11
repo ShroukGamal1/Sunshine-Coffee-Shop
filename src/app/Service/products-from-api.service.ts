@@ -7,22 +7,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsFromAPIService {
- baseUrl:string ='http://localhost:3005/Products'
+ baseUrl:string ='https://localhost:7225/api/Product/'
   constructor(private http:HttpClient) { }
   getAll():Observable<ProductInterface[]>{
 return this.http.get<ProductInterface[]>(this.baseUrl);
   }
   getById(id:number){
-    return this.http.get(`${this.baseUrl}?id=${id}`);
+    return this.http.get(`${this.baseUrl}${id}`);
   }
   update(id:number,product:any){
-    return this.http.put(`${this.baseUrl}/${id}`,product);
+    return this.http.put(`${this.baseUrl}${id}`,product);
   }
   delete(id:number){
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}id?id=${id}`);
   }
   addProduct(product:any){
-    return this.http.post(this.baseUrl,product);
+    return this.http.post(`${this.baseUrl}product`,product);
   }
 
 }

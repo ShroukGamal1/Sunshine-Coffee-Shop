@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductComponent } from './product/product.component';
 import { ProductInterface } from '../models/product-interface';
-import { ProductList } from '../models/ProductList';
-
+import { ProductsFromAPIService } from '../Service/products-from-api.service';
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -13,7 +12,14 @@ import { ProductList } from '../models/ProductList';
 export class ProductsComponent {
 
 Products:ProductInterface[]=[];
-constructor(){
-  this.Products=ProductList;
+constructor(public service:ProductsFromAPIService){
+  this.service.getAll().subscribe({
+    next: (data) => {
+      this.Products = data;
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
 }
 }

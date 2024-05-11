@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductInterface } from '../../models/product-interface';
-import { ProductList } from '../../models/ProductList';
 import { ProductServicesService } from '../../Service/product-services.service';
 import { RouterLink } from '@angular/router';
 import { ProductsFromAPIService } from '../../Service/products-from-api.service';
@@ -46,6 +45,7 @@ export class AddProductComponent implements OnInit{
       error: () => {},
     });
   }
+
 }
 
   /*

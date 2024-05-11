@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProductInterface } from '../../models/product-interface';
-import { ProductList } from '../../models/ProductList';
 import { ProductServicesService } from '../../Service/product-services.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsFromAPIService } from '../../Service/products-from-api.service';
@@ -17,24 +16,29 @@ export class ProductdetailsComponent implements OnInit {
   products :ProductInterface[]=[]
   selectedProduct: any = null;
   product:any;
+  productId:any;
   mySub :any;
 productid=0;
   constructor(public ProductService:ProductsFromAPIService,public activatedRoute:ActivatedRoute){
-    this.products=ProductList;
   }
   ngOnInit(): void {
-    this.productid = this.activatedRoute.snapshot.params['id'];
-    this.mySub = this.ProductService.getById(this.productid).subscribe({
-      next: (data) => {
-        this.product = data;
-        this.product=this.product[0];
-        console.log(this.product)
-      },
-      error: (error) => {
-        console.log(error);
+    this.activatedRoute.params.subscribe({
+      next: (params) => {
+        this.productId = params['id'];
+     
       },
     });
-  }
+    if (this.productId != 0) {
+      this.ProductService.getById(this.productId).subscribe({
+        next: (data) => {
+          this.product = data;
+          //this.product=this.product[0];
+        
+         // this.GetImg.setValue(this.product.image);
+        
+        },
+      });
+  }}
 
  /* onSelectProduct(event: Event) {
     const target = event.target as HTMLSelectElement;

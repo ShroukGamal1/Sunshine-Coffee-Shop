@@ -1,9 +1,12 @@
 export interface ProductInterface {
     id:number;
-    title:string;
+    name:string;
     quantity:number;
     price:number;
-    desc:string;
-    img:string;
+    description:string;
+    image:string;
+    rating:number;
+    categoryId:number;
+    size:string ;
 }
 

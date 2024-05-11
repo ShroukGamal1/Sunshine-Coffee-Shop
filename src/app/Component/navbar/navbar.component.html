@@ -45,8 +45,8 @@
     <li><a [routerLink]="['/Product',0,'edit']"
         [routerLinkActive]="'text-warning'"> Dashboard</a></li>
     <li><a ><i class="fa fa-info-circle"></i> Product Details</a></li>
-    <li id ='cart'> <div>
-      <a class="nav-link text-white" href="#"><i id="carti"  class="bi bi-basket-fill"></i><span id="cartCount">0</span></a>
+    <li ><div>
+      <a class="nav-link text-white" [routerLink]="['/Cart']"><i id="carti"  class="bi bi-basket-fill"></i><span id="cartCount">0</span></a>
  </div>
     </li>
 

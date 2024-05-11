@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ProductInterface } from '../models/product-interface';
-import { ProductList } from '../models/ProductList';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class ProductServicesService {
 products:ProductInterface[]=[];
 existProduct:ProductInterface|undefined;
   constructor() { 
-this.products=ProductList;
+//this.products=ProductList;
   }
 
   getAll():ProductInterface[]{

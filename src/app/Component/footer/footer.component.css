@@ -6,20 +6,37 @@
 .ftco-footer {
     font-size: 16px;
     padding: 7em 0;
-    background: #665443;
+    background-image: url("/assets/images/footer-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .ftco-section {
-    padding: 7em 0;
+
     position: relative;
 }
-p,h1,h2,a,span{
+p,h1,h2,a,span,li{
     color: beige;
+    
+    text-decoration: none;
+}
+h1,h2{
+    color: rgb(206, 154, 90);
+    padding-bottom: 30px;
+}
+i{
+    color: beige;
+    padding-right: 15px;
+}
+a:hover{
+    color: rgb(206, 154, 90);
+    font-weight: 800;
 }
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
 }
 .container {
     width: 100%;
+    padding-top: 15%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
