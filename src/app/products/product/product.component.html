@@ -1,7 +1,8 @@
     
-  <div class="row">
-@for(product of products; track product.id; let i=$index){
-   <div class="col-md-6 col-lg-4 mb-5">
+ <div class="container mt-5">
+    <div class="row">
+        @for(product of products; track product.id; let i=$index){
+   <!-- <div class="col-md-6 col-lg-4 mb-5">
     <div class="menu-entry ">
         <a href="#" > <img src="{{product.image}}"  class="img w-100" alt=""></a>
         <div class="text text-center pt-4">
@@ -23,7 +24,29 @@
   } }
         </div>
 </div>
-   </div>
-    
+   </div> -->
+   <div class="col-md-4">
+    <div class="card product-card">
+        <div class="card-img-container">
+            <img src="{{product.image}}" class="card-img-top" alt="Product Image">
+            <div class="heart-icon">
+                <i class="bi bi-heart-fill"></i>
+            </div>
+            <div class="button-overlay">
+                <button class="btn btn-circle btn-secondary"><i class="bi bi-bag-fill"></i></button>
+                <button class="btn btn-circle btn-secondary"><i class="bi bi-emoji-heart-eyes-fill"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Product Name</h5>
+            <div class="rating">
+                ★★★★☆
+            </div>
+            <p class="card-text">$29.99</p>
+        </div>
+    </div>
+  </div>  
 }
+</div>
 </div>  

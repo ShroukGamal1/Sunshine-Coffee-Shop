@@ -24,11 +24,11 @@
 
                 <li class="share">Share On : </li>
                 <li><a href="#" class="facebook">
-                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                <div class="front"><i class="bi bi-facebook"></i></div></a></li>
                 <li><a href="#" class="twitter"> 
                 <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
                 <li><a href="#" class="instagram">
-                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                <div class="front"><i class="bi bi-twitter"></i></div></a></li>
                 <li><a href="#" class="pinterest">
                 <div class="front"><i class="fa fa-pinterest" aria-hidden="true"></i></div></a></li>
                 </ul>
@@ -44,7 +44,9 @@
         [routerLinkActiveOptions]="{ exact: true }" ><i class="fa fa-home"></i> Home</a></li>
     <li><a [routerLink]="['/Product',0,'edit']"
         [routerLinkActive]="'text-warning'"> Dashboard</a></li>
-    <li><a ><i class="fa fa-info-circle"></i> Product Details</a></li>
+    <li><a ><i class="bi bi-person-fill fs-1" [routerLink]="['/LogIn']"></i></a></li>
+    <li><a ><i class="bi bi-person-fill fs-1" [routerLink]="['/Register']"></i></a></li>
+
     <li ><div>
       <a class="nav-link text-white" [routerLink]="['/Cart']"><i id="carti"  class="bi bi-basket-fill"></i><span id="cartCount">0</span></a>
  </div>

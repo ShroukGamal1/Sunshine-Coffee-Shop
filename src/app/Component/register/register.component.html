@@ -1,0 +1,90 @@
+<div id="lal" class="regist pt-5 pb-5 m-auto">
+<form class="form m-auto"  [formGroup]="registerForm" >
+    <p class="title">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+   
+    <label>
+        <span>User Name</span>
+        <input formControlName="name"
+        type="text"
+        name="productName"
+        class="form-control"
+        id="productName"
+        placeholder="Enter Your Name">
+
+        <ng-container *ngIf="getName.touched">   <!-- check if user focus on input -->
+            <div 
+              *ngIf="getName.hasError('required')"
+              class="form-text text-danger">
+              Product is required
+            </div>
+
+            <div 
+              *ngIf="getName.hasError('pattern')"
+              class="form-text text-danger">
+              name should be at least 8 alphanumeric characters
+            </div>
+
+        </ng-container>
+       
+    </label>
+
+    <label>
+        <span>Email</span>
+        <input formControlName="email"
+        type="email"
+        name="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter Email">
+      
+    </label> 
+        
+    <label>
+        <span>Password</span>
+        <input formControlName="password"
+        type="password"
+        name="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter Password">
+    </label>
+    
+    <label>
+        <span>Confirm password</span>
+        <input formControlName="confirmPassword"
+        type="password"
+        name="confirmPassword"
+        class="form-control"
+        id="confirmPassword"
+        placeholder="Confirm Password">
+       
+    </label>
+
+    <label>
+        <span>Address</span>
+        <input formControlName="address"
+        type="text"
+        name="address"
+        class="form-control"
+        id="address"
+        placeholder="Address">
+      
+    </label>
+
+    <label>
+        <span>Phone</span>
+        <input formControlName="phone"
+        type="text"
+        name="phone"
+        class="form-control"
+        id="phone"
+        placeholder="Phone">
+       
+    </label>
+
+
+    <button class="btn" (click)="registerHandler()">Submit</button>
+    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+</form>
+</div>

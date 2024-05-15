@@ -1,0 +1,30 @@
+<div id="lal" class="pt-5 pb-5">
+<form class="form_main m-auto "  [formGroup]="LoginForm">
+    <p class="heading">Login</p>
+    <div class="inputContainer">
+     
+    <input placeholder="Email" id="username" class="inputField" type="email" name="email"
+    formControlName="email">
+    </div>
+    <br>
+<div class="inputContainer">
+
+    <input placeholder="Password" id="password" class="inputField" type="password" name="password"
+     formControlName="password">
+</div>
+   <br>           
+   <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="rememberMe"
+    formControlName="rememberMe">
+    <label class="form-check-label" for="flexCheckDefault">
+      Remember Me
+    </label>
+   </div>    
+<button id="button" (click)="Login()">Submit</button>
+<br><br><br>
+    <div class="signupContainer">
+        <p>Don't have any account?</p>
+        <button id="button">Sign up</button>
+    </div>
+</form>
+</div>

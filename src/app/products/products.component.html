@@ -1,8 +1,15 @@
 <section class="ftco-section">
     <div class="container">
        <h1 class="text-center">MY PRODUCTS</h1>
+      
  <p class="text-center mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-         <app-product [products]="Products"></app-product>
+ <div class="btn-group d-flex flex-row mx-5 mb-4">
+    <button type="button" class="btn btn-primary btn-spacing" (click)="handleClick(0)">All</button>
+    <button *ngFor="let category of Categories" type="button" class="btn btn-primary btn-spacing" (click)="handleClick(category.id)">
+      {{ category.name }}
+    </button>
+  </div>
+ <app-product [products]="Products"></app-product>
      
     </div>
 </section>

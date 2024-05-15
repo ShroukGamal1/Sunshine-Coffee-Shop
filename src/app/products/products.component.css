@@ -74,3 +74,12 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 p{
     color:#8e7047 ;
 }
+.btn-spacing {
+    margin-right: 10px; /* Adjust as needed */
+  }
+
+  .btn-primary{
+    background-color: #8e7047;
+    font-weight: bold;
+    border-color:#c49b63 ;
+  }

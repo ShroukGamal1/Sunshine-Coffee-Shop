@@ -13,7 +13,7 @@ export class ProductsFromAPIService {
 return this.http.get<ProductInterface[]>(this.baseUrl);
   }
   getById(id:number){
-    return this.http.get(`${this.baseUrl}${id}`);
+    return this.http.get<ProductInterface>(`${this.baseUrl}${id}`);
   }
   update(id:number,product:any){
     return this.http.put(`${this.baseUrl}${id}`,product);
@@ -23,6 +23,13 @@ return this.http.get<ProductInterface[]>(this.baseUrl);
   }
   addProduct(product:any){
     return this.http.post(`${this.baseUrl}product`,product);
+  }
+  getProducts(id:number):Observable<ProductInterface[]>{
+    return this.http.get<ProductInterface[]>(`${this.baseUrl}GetProductsperCategory/${id}`);
+      }
+
+  getTopRated(){
+    return this.http.get<ProductInterface[]>(`${this.baseUrl}Get3TopRatedProducts`);
   }
 
 }

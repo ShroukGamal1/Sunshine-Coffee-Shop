@@ -83,3 +83,50 @@ color: bisque;
     line-height: 1.5;
     border-radius: 0.25rem;
 }
+
+
+.card-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 350px;
+}
+
+.button-overlay {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    transform: translateY(-30%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: right 0.5s ease;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card:hover .button-overlay {
+    right: 10%; /* Adjust this to half of the card image's width */
+}
+.heart-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: red;
+    display: none;
+}
+.rating {
+    color: gold;
+    font-size: 1.25rem;
+}

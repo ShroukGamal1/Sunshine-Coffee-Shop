@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 import { ElementsComponent } from './Component/elements/elements.component';
 import { ProductFormComponent } from './Component/add-product/product-form/product-form.component';
 import { CartComponent } from './Component/cart/cart.component';
+import { LoginComponent } from './Component/login/login.component';
+import { RegisterComponent } from './Component/register/register.component';
 
 export const routes: Routes = [
     {path:"",component:ElementsComponent},
@@ -13,7 +15,10 @@ export const routes: Routes = [
         {path:"Product/:id/edit",component:AddProductComponent},
         {path:"Product/:id/add",component:ProductFormComponent},
         {path:"Product/:id/details",component:ProductdetailsComponent},
-        {path:"Cart",component:CartComponent}
+        {path:"Cart",component:CartComponent},
+        {path:"LogIn",component:LoginComponent},
+        {path:"Register",component:RegisterComponent}
+
 
 
 ];

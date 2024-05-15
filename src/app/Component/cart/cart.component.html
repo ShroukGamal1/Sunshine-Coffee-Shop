@@ -1,103 +1,117 @@
-<section>	
-        <!--PreLoader-->
-        <div class="loader">
-            <div class="loader-inner">
-                <div class="circle"></div>
-            </div>
-        </div>
-        <!--PreLoader Ends-->
-        
-       
-    
+<section class="bg-light my-5">
+    <div class="container">
+      <div class="row">
         <!-- cart -->
-        <div class="cart-section mt-150 mb-150">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="cart-table-wrap">
-                            <table class="cart-table">
-                                <thead class="cart-table-head">
-                                    <tr class="table-head-row">
-                                        <th class="product-remove"></th>
-                                        <th class="product-image">Product Image</th>
-                                        <th class="product-name">Name</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product-quantity">Quantity</th>
-                                        <th class="product-total">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="table-body-row">
-                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                        <td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-                                        <td class="product-name">Strawberry</td>
-                                        <td class="product-price">$85</td>
-                                        <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                        <td class="product-total">1</td>
-                                    </tr>
-                                    <tr class="table-body-row">
-                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                        <td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-                                        <td class="product-name">Berry</td>
-                                        <td class="product-price">$70</td>
-                                        <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                        <td class="product-total">1</td>
-                                    </tr>
-                                    <tr class="table-body-row">
-                                        <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                        <td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-                                        <td class="product-name">Lemon</td>
-                                        <td class="product-price">$35</td>
-                                        <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                        <td class="product-total">1</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <div class=" cart col-lg-9 mb-4">
+          <div class="card border shadow-0">
+            <div class="m-4">
+              <h4 class="card-title mb-4">Your shopping cart</h4>
+              @for(product of OrderProducts; track product){
+              <div class="row gy-3 mb-4">
+                <div class="col-lg-5">
+                  <div class="me-lg-5">
+                    <div class="d-flex">
+                      <img src="{{product.Product.image}}" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                      <div class="">
+                        <a href="#" class="nav-link"><b>{{product.Product.name}}</b></a>
+                        <p class="text-muted"></p>
+                      </div>
                     </div>
-    
-                    <div class="col-lg-4">
-                        <div class="total-section">
-                            <table class="total-table">
-                                <thead class="total-table-head">
-                                    <tr class="table-total-row">
-                                        <th>Total</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="total-data">
-                                        <td><strong>Subtotal: </strong></td>
-                                        <td>$500</td>
-                                    </tr>
-                                    <tr class="total-data">
-                                        <td><strong>Shipping: </strong></td>
-                                        <td>$45</td>
-                                    </tr>
-                                    <tr class="total-data">
-                                        <td><strong>Total: </strong></td>
-                                        <td>$545</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="cart-buttons">
-                                <a href="cart.html" class="boxed-btn">Update Cart</a>
-                                <a href="checkout.html" class="boxed-btn black">Check Out</a>
-                            </div>
-                        </div>
-    
-                        <div class="coupon-section">
-                            <h3>Apply Coupon</h3>
-                            <div class="coupon-form-wrap">
-                                <form action="index.html">
-                                    <p><input type="text" placeholder="Coupon"></p>
-                                    <p><input type="submit" value="Apply"></p>
-                                </form>
-                            </div>
-                        </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                  <div class="quantity col-8">
+          <button (click)="decreaseQuantity(product)">
+            <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
+            </svg>
+          </button>
+          <label>{{product.productOrder.quantity}}</label>
+          <button (click)="increaseQuantity(product)">
+            <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
+            </svg>
+          </button>
+        </div>
+                  <div class="">
+                    <h6>{{product.productOrder.subPrice}}</h6> <br />
+                    <small class="text-muted text-nowrap"> ${{product.Product.price}} / per item </small>
+                  </div>
+                </div>
+                <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                  <div class="float-md-end">
+                    <a href="#!" class="btn btn-light border px-2 icon-hover-primary "><i class="bi bi-person-hearts"></i></a>
+                    <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
+                  </div>
+                </div>
+              </div>}
+             </div>
+          </div>
+         
+        </div>
+        <!-- cart -->
+        <!-- summary -->
+        <br> 
+          <div class="card shadow-0 border mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <p class="mb-2">Total price:</p>
+                <p class="mb-2">${{cartt.totalPrice}}</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p class="mb-2">TAX:</p>
+                <p class="mb-2">$14.00</p>
+              </div>
+              <hr />
+              <div class="d-flex justify-content-between">
+                <p class="mb-2">Total price:</p>
+                <p class="mb-2 fw-bold">${{cartt.totalPrice+14}}</p>
+              </div>
+  
+              <div class="mt-3">
+                <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
+                <a href="#" class="btn btn-light w-100 border mt-2"> Back to shop </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- summary -->
+    </div>
+   
+  </section>
+  <!-- cart + summary -->
+  <section>
+    <div class="container my-5">
+      <header class="mb-4">
+        <h3>Recommended items</h3>
+      </header>
+  
+      <div class="row">
+        @for(p of topProducts; track p.id; let i=$index){
+          <div class="col-md-4">
+            <div class="card product-card">
+                <div class="card-img-container">
+                    <img src="{{p.image}}" class="card-img-top" alt="Product Image">
+                    <div class="heart-icon">
+                        <i class="bi bi-heart-fill"></i>
+                    </div>
+                    <div class="button-overlay">
+                        <button class="btn btn-circle btn-secondary"><i class="bi bi-bag-fill"></i></button>
+                        <button class="btn btn-circle btn-secondary"><i class="bi bi-emoji-heart-eyes-fill"></i>
+                        </button>
                     </div>
                 </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{p.name}}</h5>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                    <p class="card-text">${{p.price}}</p>
+                </div>
             </div>
-        </div>
-        <!-- end cart -->
-</section>
+          </div>  
+
+      }
+      </div>
+    </div>
+  </section>
