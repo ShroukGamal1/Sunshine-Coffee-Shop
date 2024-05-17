@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 10px;
     max-width: 700px;
-    background-color: #fff;
+    background-color: #f9ecd9;
     padding: 20px;
     border-radius: 20px;
     position: relative;
@@ -19,6 +19,46 @@
     align-items: center;
     padding-left: 30px;
   }
+  #button {
+    position: relative;
+    width: 100%;
+    border: 2px solid #665443;
+    background-color: #665443;
+    height: 40px;
+    color: white;
+    font-size:larger;
+    font-weight: 500;
+    
+    letter-spacing: 1px;
+    border-radius: 30px;
+    margin: 10px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  #button::after {
+    content: "";
+    position: absolute;
+    background-color: #6d4520;
+    height: 100%;
+    width: 150px;
+    top: 0;
+    left: -200px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    filter: blur(10px);
+    transition-duration: .5s;
+  }
+  
+  #button:hover::after {
+    transform: translateX(700px);
+    transition-duration: .5s;
+    background-color: white;
+  }
+  #button:hover{
+    background-color: #ad7440;
+  }
+  
   
   .title::before,.title::after {
     position: absolute;
@@ -51,13 +91,6 @@
     text-align: center;
   }
   
-  .signin a {
-    color: #665443;
-  }
-  
-  .signin a:hover {
-    text-decoration: underline #665443;
-  }
   
   .flex {
     display: flex;
@@ -135,4 +168,14 @@
   #lal{
     background-image: url("../../../assets/images/theme.jpg");
     width: 100%;
+  }
+  a{
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    color: #665443;
+
+  }
+  a:hover{
+    color: #ad7440;
   }

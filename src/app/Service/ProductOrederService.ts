@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoryInterface } from '../models/Category-Interface';
 import { CartInterface } from '../models/CartInterface';
@@ -19,11 +19,12 @@ return this.http.get<CartInterface[]>(this.baseUrl);
   update(product:any){
     return this.http.put(`${this.baseUrl}update`,product);
   }
-  delete(id:number){
-    return this.http.delete(`${this.baseUrl}id?id=${id}`);
+  delete(productOrder:any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.delete(`${this.baseUrl}`,{ headers: headers, body: productOrder });
   }
-  addProduct(product:any){
-    return this.http.post(`${this.baseUrl}product`,product);
+  add(product:any){
+    return this.http.post(`${this.baseUrl}cart`,product);
   }
 
 

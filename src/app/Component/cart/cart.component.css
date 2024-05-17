@@ -47,8 +47,13 @@
     justify-content: center;
     border: 0;
     outline: none;
-    background-color: transparent;
+    background-color: #c49b63;
+
     padding-bottom: 2px;
+  }
+  .cart .quantity button:hover {
+    background-color:#7e6440 ;
+
   }
   
   

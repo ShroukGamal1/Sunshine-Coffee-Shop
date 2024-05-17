@@ -33,17 +33,20 @@
                 <i class="bi bi-heart-fill"></i>
             </div>
             <div class="button-overlay">
-                <button class="btn btn-circle btn-secondary"><i class="bi bi-bag-fill"></i></button>
-                <button class="btn btn-circle btn-secondary"><i class="bi bi-emoji-heart-eyes-fill"></i>
+                <button class="btn btn-circle btn-secondary" (click)="AddtoCart(product.id,product.price)"><i class="bi bi-bag-fill"></i></button>
+                <button class="btn btn-circle btn-secondary" (click)="addToFav(product.id)"><i class="bi bi-emoji-heart-eyes-fill"></i>
                 </button>
             </div>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Product Name</h5>
-            <div class="rating">
-                ★★★★☆
-            </div>
-            <p class="card-text">$29.99</p>
+            <h5 class="card-title">
+                {{product.name}}
+            </h5>
+            <div class="star-rating">
+                <!-- Render stars based on average rating -->
+                
+              </div>
+            <p class="card-text">${{product.price}}</p>
         </div>
     </div>
   </div>  

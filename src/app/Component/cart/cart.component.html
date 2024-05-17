@@ -6,6 +6,7 @@
           <div class="card border shadow-0">
             <div class="m-4">
               <h4 class="card-title mb-4">Your shopping cart</h4>
+              @if(OrderProducts){
               @for(product of OrderProducts; track product){
               <div class="row gy-3 mb-4">
                 <div class="col-lg-5">
@@ -21,13 +22,13 @@
                 </div>
                 <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
                   <div class="quantity col-8">
-          <button (click)="decreaseQuantity(product)">
+          <button class="counter" (click)="decreaseQuantity(product)">
             <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
             </svg>
           </button>
           <label>{{product.productOrder.quantity}}</label>
-          <button (click)="increaseQuantity(product)">
+          <button   class="counter" (click)="increaseQuantity(product)" >
             <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
             </svg>
@@ -41,10 +42,10 @@
                 <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
                   <div class="float-md-end">
                     <a href="#!" class="btn btn-light border px-2 icon-hover-primary "><i class="bi bi-person-hearts"></i></a>
-                    <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
+                    <button  class="btn btn-light border text-danger icon-hover-danger" (click)="Remove(product.productOrder)"> Remove</button>
                   </div>
                 </div>
-              </div>}
+              </div>}}
              </div>
           </div>
          

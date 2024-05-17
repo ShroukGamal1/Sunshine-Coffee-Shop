@@ -84,7 +84,7 @@
     </label>
 
 
-    <button class="btn" (click)="registerHandler()">Submit</button>
-    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+    <button id="button" class="btn btn-primary" (click)="registerHandler()">Submit</button>
+    <p class="signin">Already have an acount ? <a href="#" [routerLink]="['/LogIn']" >Signin</a> </p>
 </form>
 </div>

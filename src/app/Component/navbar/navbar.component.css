@@ -156,6 +156,11 @@ font-weight: bold;
 #carti{
   font-size: 40px;
 }
+#carti:hover{
+  color: #c07431;
+
+}
+#login{font-size: 40px;}
 #sec3 span{
   border-radius: 50%;
   padding-left: 2px;

@@ -31,15 +31,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.CartService.getCart().subscribe({
       next: (data) => {
+        console.log(data);
         this.Cart = data.products;
         this.cartt=data;
-        this.TotalPrice=data.totalPrice;
-       // console.log(this.Cart);
+        
+        console.log (this.cartt);
         this.Cart.forEach((element:CartInterface) => {
           this.productService.getById(element.productId).subscribe({
             next: (value)=>{
               this.OrderProducts.push({productOrder:element,Product:value})
-              //this.products.push(value);
+              this.cartt.totalPrice+=value.price;
             },
             error: (error) => {
               console.log(error);
@@ -47,6 +48,8 @@ export class CartComponent implements OnInit {
           })
         }
       );
+      this.CartService.update(this.cartt.id,this.cartt);
+
       console.log(this.products);
       },
       error: (error) => {
@@ -72,7 +75,7 @@ increaseQuantity(product:any){
     next:(data)=>{
       //console.log(data);
       product.productOrder=data;
-      this.cartt.totalPrice+=product.productOrder.subPrice;
+      this.cartt.totalPrice+=product.Product.price;
       this.CartService.update(this.cartt.id,this.cartt).subscribe({
         next:(value)=>{
           console.log(value);
@@ -97,10 +100,11 @@ decreaseQuantity(product:any){
       next:(data)=>{
         console.log(data);
         product.productOrder=data;
-        this.cartt.totalPrice-=product.productOrder.subPrice;
+        this.cartt.totalPrice-=product.Product.price;
 
         this.CartService.update(this.cartt.id,this.cartt).subscribe({
           next:(value)=>{
+            this.cartt=value;
             console.log(value);
           },
           error: (error) => {
@@ -115,5 +119,27 @@ decreaseQuantity(product:any){
     });
   }
 }
+Remove(productorder:any){
+this.productOrderService.delete(productorder).subscribe({
+  next:(data)=>{
+    this.OrderProducts = this.OrderProducts.filter((item: any) => item.productOrder !== productorder);
 
+  },
+  error: (error) => {
+    console.log(error);
+  }
+});
+
+this.cartt.totalPrice-=productorder.subPrice;
+if(this.cartt.totalPrice<0){
+  this.cartt.totalPrice=0;
+}
+this.CartService.update(this.cartt.id,this.cartt).subscribe({
+next:(data)=>{
+  this.cartt=data;
+},error: (error) => {
+  console.log(error);
+}
+});
+}
 }

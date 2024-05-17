@@ -45,6 +45,10 @@ export class LoginComponent {
    
   }
 
+  SignUp(){
+    this.router.navigate(['/Register']);
+  }
+
    
  }
   

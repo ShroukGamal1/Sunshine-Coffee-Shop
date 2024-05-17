@@ -44,11 +44,11 @@
         [routerLinkActiveOptions]="{ exact: true }" ><i class="fa fa-home"></i> Home</a></li>
     <li><a [routerLink]="['/Product',0,'edit']"
         [routerLinkActive]="'text-warning'"> Dashboard</a></li>
-    <li><a ><i class="bi bi-person-fill fs-1" [routerLink]="['/LogIn']"></i></a></li>
-    <li><a ><i class="bi bi-person-fill fs-1" [routerLink]="['/Register']"></i></a></li>
-
+    <li><a ><i id="login"  class="bi bi-person-fill-add"
+        [routerLink]="['/LogIn']"></i></a></li>
     <li ><div>
-      <a class="nav-link text-white" [routerLink]="['/Cart']"><i id="carti"  class="bi bi-basket-fill"></i><span id="cartCount">0</span></a>
+      <a class="nav-link text-white" [routerLink]="['/Cart']"><i id="carti"  class="bi bi-cart4"
+        ></i><span id="cartCount">0</span></a>
  </div>
     </li>
 
