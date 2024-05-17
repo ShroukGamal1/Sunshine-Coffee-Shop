@@ -14,11 +14,11 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   registerForm = new FormGroup({
     name : new FormControl('',[Validators.required, Validators.pattern("^[a-zA-Z0-9]{8,}$")]), 
-    email : new FormControl(""), 
-    password : new FormControl(""), 
+    email : new FormControl("", [Validators.required, Validators.pattern(".{4,}(.com$)")]), 
+    password : new FormControl("", [Validators.required, Validators.pattern("[A-Z]+.{7,}")]), 
     confirmPassword: new FormControl(""),
-    address: new FormControl(""),
-    phone: new FormControl(""),
+    address: new FormControl("", Validators.required),
+    phone: new FormControl("",Validators.required),
   });
 
   constructor(
