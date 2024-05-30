@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{alertMsg}}</h2>
+
+@if (alertMsg=="Login First" || alertMsg=="Already Added") {
+    <button mat-button mat-dialog-close style="overflow: hidden;">OK</button>
+}
+@else {
+    <mat-dialog-actions>
+      <button (click)="addTofav()" mat-button mat-dialog-close>YES</button>
+      <button mat-button mat-dialog-close>NO</button>
+    </mat-dialog-actions>
+}

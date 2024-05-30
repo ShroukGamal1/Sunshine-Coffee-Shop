@@ -34,8 +34,8 @@
             </div>
             <div class="button-overlay">
                 <button class="btn btn-circle btn-secondary" (click)="AddtoCart(product.id,product.price)"><i class="bi bi-bag-fill"></i></button>
-                <button class="btn btn-circle btn-secondary" (click)="addToFav(product.id)"><i class="bi bi-emoji-heart-eyes-fill"></i>
-                </button>
+                <!-- <button class="btn btn-circle btn-secondary" (click)="addToFav(product.id)"><i class="bi bi-emoji-heart-eyes-fill"></i></button> -->
+                <button class="btn btn-circle btn-secondary" (click)="openDialog(product.id)"><i class="bi bi-emoji-heart-eyes-fill"></i></button>
             </div>
         </div>
         <div class="card-body">

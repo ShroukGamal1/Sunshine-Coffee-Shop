@@ -1,20 +1,26 @@
+import { FavouriteService } from './../../Service/favourite.service';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from '../../Service/CartService';
 import { ProductOrderService } from '../../Service/ProductOrederService';
 import { OrderInterface } from '../../models/OrderInterface';
 import { AccountService } from '../../Service/Account-Service';
+import { ProdUser } from '../../models/ProdUser';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { AlertComponent } from '../../Component/alert/alert.component';
+
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatDialogModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit{
   @Input() products :any[]=[];
   cart:any;
    order:any;
+   UserId: string|undefined;
   //getAverageRating(): number {
     //return this.product.ratings.reduce((sum, rating) => sum + rating, 0) / this.product.ratings.length;
   //}
@@ -22,9 +28,24 @@ export class ProductComponent {
   /**
    *
    */
-  constructor(public cartService:CartService, public productorder:ProductOrderService, public accountService:AccountService) {
+  constructor(public cartService:CartService, 
+    public productorder:ProductOrderService,
+    public FavouriteService: FavouriteService,
+    public dialog: MatDialog,
+     public accountService:AccountService) {
     
   }
+  ngOnInit(): void {
+    this.accountService.getTheLoggedInUserId().subscribe({
+      next: (data)=>{
+        this.UserId = data.userId;
+        console.log("userID: "+this.UserId);
+      }
+    });
+
+  }
+
+
   AddtoCart(id:number,price:number){
 
     this.cartService.getCart().subscribe({
@@ -72,10 +93,16 @@ export class ProductComponent {
     });
   }
 
-  addToFav(productId:any){
 
-    this.accountService.getTheLoggedInUserId().subscribe({
-      next: (data)=>{console.log("success"); console.log(data)},
-      error: (error)=>{console.log("error"); console.log(error);},
-    });
-}}
+  openDialog(productId: number) {
+      this.dialog.open(AlertComponent, {
+        data: {
+           productId: productId,
+           userId: this.UserId,
+           "alertMsg": this.UserId==undefined? "Login First":"add product to favourite",
+           }
+      });
+    
+    
+  }
+}

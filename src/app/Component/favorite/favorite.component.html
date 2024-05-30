@@ -1,0 +1,33 @@
+<div class="mt-5 container">
+    <h1 class="text-muted text-center">Favourite Products</h1>
+    <div class="row mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">description</th>
+            <th scope="col">price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+          @for (item of UserFavProd; track $index) {
+            <tr>
+              <td scope="col">{{$index+1}}</td>
+              <td scope="col"><img [src]="item.productImage" class="card-img-top" style="width: 80px; height: 80px;" alt="Product Image"></td>
+              <td scope="col">{{item.productName}} </td>
+              <td scope="col">{{item.productDesc}} </td>
+              <td scope="col">{{item.productPrice}}</td>
+              <td>
+                <i [routerLink]="['/Product', item.productId, 'details']" class="mx-2 fs-5 bi bi-info-square-fill text-info"></i>
+                <i  (click)="deleteProdFormFav(item.productId)" class=" mx-2 fs-5 bi bi-trash3-fill text-danger"></i>
+                <!--  -->
+              </td>
+            </tr>
+          }
+
+      </table>
+    </div>
+  </div>

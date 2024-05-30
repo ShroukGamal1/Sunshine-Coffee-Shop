@@ -8,8 +8,9 @@ import { LoginInterface } from '../models/Login-interface';
   export class AccountService {
    baseUrl:string ='https://localhost:7225/api/Account/'
     constructor(private http:HttpClient) { }
+
     getAll():Observable<LoginInterface[]>{
-  return this.http.get<LoginInterface[]>(this.baseUrl);
+      return this.http.get<LoginInterface[]>(this.baseUrl);
     }
     getById(id:string){
       return this.http.get(`${this.baseUrl}${id}`);
@@ -21,11 +22,16 @@ import { LoginInterface } from '../models/Login-interface';
     Register(user:any){
       return this.http.post<any>(`${this.baseUrl}`,user);
     }
-    getTheLoggedInUserId(){
-      const headers =new HttpHeaders({
-        'Authorization':`Bearer ${localStorage.getItem('token')}`
+
+    //-------------------------------------------------------
+
+    getTheLoggedInUserId(): Observable<any> {
+      const token = localStorage.getItem('token');
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
       });
-      return this.http.get<any>(`${this.baseUrl}GettheLoggedInUserId`, {headers});
+  
+      return this.http.get<any>(`${this.baseUrl}GettheLoggedInUserId`, { headers });
     }
   
   }
