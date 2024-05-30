@@ -46,10 +46,22 @@
         [routerLinkActive]="'text-warning'"> Dashboard</a></li>
     <li><a ><i id="login"  class="bi bi-person-fill-add"
         [routerLink]="['/LogIn']"></i></a></li>
-    <li ><div>
-      <a class="nav-link text-white" [routerLink]="['/Cart']"><i id="carti"  class="bi bi-cart4"
-        ></i><span id="cartCount">0</span></a>
- </div>
+    <li>
+        <div>
+            <a class="nav-link text-white" [routerLink]="['/Cart']">
+                <i id="carti"  class="bi bi-cart4"></i>
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+    </li>
+
+    <li>
+        <div>
+            <a class="nav-link text-white" [routerLink]="['/Favorite']">
+                <i class="bi bi-heart-fill"></i>
+                <span id="fav-icon-count">0</span>
+            </a>
+        </div>
     </li>
 
   </ul>

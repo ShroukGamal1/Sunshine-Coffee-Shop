@@ -8,17 +8,16 @@ import { ProductFormComponent } from './Component/add-product/product-form/produ
 import { CartComponent } from './Component/cart/cart.component';
 import { LoginComponent } from './Component/login/login.component';
 import { RegisterComponent } from './Component/register/register.component';
+import { FavoriteComponent } from './Component/favorite/favorite.component';
 
 export const routes: Routes = [
     {path:"",component:ElementsComponent},
     {path:"Product/:id",component:ProductdetailsComponent},
-        {path:"Product/:id/edit",component:AddProductComponent},
-        {path:"Product/:id/add",component:ProductFormComponent},
-        {path:"Product/:id/details",component:ProductdetailsComponent},
-        {path:"Cart",component:CartComponent},
-        {path:"LogIn",component:LoginComponent},
-        {path:"Register",component:RegisterComponent}
-
-
-
+    {path:"Product/:id/edit",component:AddProductComponent},
+    {path:"Product/:id/add",component:ProductFormComponent},
+    {path:"Product/:id/details",component:ProductdetailsComponent},
+    {path:"Cart",component:CartComponent},
+    {path:"LogIn",component:LoginComponent},
+    {path:"Register",component:RegisterComponent},
+    {path:"Favorite",component:FavoriteComponent}
 ];

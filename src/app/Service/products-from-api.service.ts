@@ -32,4 +32,6 @@ return this.http.get<ProductInterface[]>(this.baseUrl);
     return this.http.get<ProductInterface[]>(`${this.baseUrl}Get3TopRatedProducts`);
   }
 
+
+
 }
